@@ -6,11 +6,14 @@ class Park {
   String description;
   String image;
   LatLng locationCoords;
+  int phone;
 
-  Park(
-      {this.parkName,
-      this.address,
-      this.description,
-      this.locationCoords,
-      this.image});
+  Park({
+    this.parkName,
+    this.address,
+    this.description,
+    this.locationCoords,
+    this.image,
+    this.phone,
+  });
 }
