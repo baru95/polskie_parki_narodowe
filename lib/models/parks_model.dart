@@ -9,6 +9,10 @@ class Park {
   LatLng locationCoords;
   String phone;
   String area;
+  String image2;
+  String image3;
+  String image4;
+  String image5;
 
   Park({
     this.parkName,
@@ -19,5 +23,9 @@ class Park {
     this.image,
     this.phone,
     this.area,
+    this.image2,
+    this.image3,
+    this.image4,
+    this.image5
   });
 }

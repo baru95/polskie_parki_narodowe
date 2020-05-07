@@ -23,6 +23,10 @@ class Parks {
       moreDescription:
           'Polski park narodowy utworzony w 1954 roku na terenie ówczesnego województwa krakowskiego. Znajduje się on w Polsce południowej, w powiecie suskim i nowotarskim przy granicy ze Słowacją.',
       area: '33,92 km²',
+      image2: 'http://www.bgpn.pl/images/gallery/DSC05239.jpg',
+      image3: 'http://www.bgpn.pl/images/gallery/DSC00221.jpg',
+      image4: 'http://www.bgpn.pl/images/gallery/DSC03874.jpg',
+      image5: 'http://www.bgpn.pl/images/gallery/DSC08712.jpg',
     ),
     Park(
       parkName: 'Białowieski Park Narodowy',
@@ -35,6 +39,10 @@ class Parks {
       phone: '856 812 306',
       moreDescription: 'Położony w północno-wschodniej części Polski, w województwie podlaskim, utworzony z Nadleśnictwa Rezerwat jako Park Narodowy w Białowieży obowiązującym od 11 sierpnia 1932 r.',
       area: '105,2 km²',
+      image2: 'https://bpn.com.pl/images/stories/gallery/zubry2/Klosowscy12.jpg',
+      image3: 'https://bpn.com.pl/images/stories/gallery/krajobrazy/2005_10_02DSC_0098.jpg',
+      image4: 'https://bpn.com.pl/images/stories/gallery/puszcza1/obrazek-1fd63d-8.jpg',
+      image5: 'https://bpn.com.pl/images/stories/gallery/puszcza2/jk_a20.jpg',
     ),
     Park(
       parkName: 'Biebrzański Park Narodowy',
@@ -47,6 +55,10 @@ class Parks {
       phone: '857 380 620',
       moreDescription: 'utworzony 9 września 1993. Największy Park w Polsce, położony na terenach Kotliny Biebrzańskiej w województwie podlaskim. Siedziba Parku znajduje się w Osowcu-Twierdzy.',
       area: '592,2 km²',
+      image2: 'https://www.biebrza.org.pl/grafika,1083,fot-cwerpachowski.jpg',
+      image3: 'https://www.biebrza.org.pl/grafika,1064,fot-cwerpachowski.jpg',
+      image4: 'https://www.biebrza.org.pl/grafika,1060,fot-cwerpachowski.jpg',
+      image5: 'https://www.biebrza.org.pl/grafika,1059,fot-cwerpachowski.jpg',
     ),
     Park(
       parkName: 'Bieszczadzki Park Narodowy',
@@ -59,6 +71,10 @@ class Parks {
       phone: '13 461 06 10',
       moreDescription: 'Utworzony w 1973 roku. W 1992 roku stał się częścią Międzynarodowego Rezerwatu Biosfery „Karpaty Wschodnie”. Jest trzecim co do wielkości parkiem narodowym na terenie Polski.',
       area: '292 km²',
+      image2: '',
+      image3: '',
+      image4: '',
+      image5: '',
     ),
     Park(
       parkName: 'Park Narodowy \'Bory Tucholskie\'',
@@ -71,6 +87,10 @@ class Parks {
       phone: '523 988 397',
       moreDescription: 'Znajduje się na terenie województwa pomorskiego, w powiecie chojnickim, w granicach gmin Chojnice i Brusy. Powierzchnia leśna to 1,9% całkowitej powierzchni Borów Tucholskich.',
       area: '46,13 km²',
+      image2: '',
+      image3: '',
+      image4: '',
+      image5: '',
     ),
     Park(
       parkName: 'Drawieński Park Narodowy',
@@ -83,6 +103,10 @@ class Parks {
       phone: '95 768 20 51',
       moreDescription: 'Lasy na terenie Parku zajmują 83% powierzchni. W większości są to lasy bukowe i dębowo-bukowe, oraz bory sosnowe. Ponadto 10% powierzchni wodnej Parku zajmują jeziora wraz z rzekami.',
       area: '115,36 km²',
+      image2: '',
+      image3: '',
+      image4: '',
+      image5: '',
     ),
     Park(
       parkName: 'Tatrzański Park Narodowy',
@@ -95,6 +119,10 @@ class Parks {
       phone: '18 202 32 00',
       moreDescription: 'Utworzony z dniem 1 stycznia 1955 roku przez rozporządzenie Rady Ministrów z 30 października 1954 r. Jego odpowiednikiem po stronie słowackiej jest TANAP.',
       area: '211,64 km²',
+      image2: '',
+      image3: '',
+      image4: '',
+      image5: '',
     ),
   ];
 }

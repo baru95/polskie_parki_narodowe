@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './park_gallery.dart';
 import './park_detail.dart';
 import '../../models/parks.dart';
 
@@ -15,6 +16,7 @@ class _AboutParksState extends State<AboutParks> {
 
   int element;
   // AboutParks(this.index);
+  List imgGallery;
 
   @override
   Widget build(BuildContext context) {
@@ -115,26 +117,55 @@ class _AboutParksState extends State<AboutParks> {
                     phone: p[element].phone,
                     area: p[element].area,
                   ),
-                  Center(
-                    //PRZYCISK POWRÓT
-                    child: Center(
-                      //PRZYCISK POWRÓT
-                      child: RaisedButton(
-                        child: Text('Powrót'),
-                        elevation: 5.0,
-                        color: Theme.of(context).accentColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(10.0),
-                          side: BorderSide(color: Colors.black),
+                  Container(
+                    //PRZYCISKI PARK DETAIL
+                    padding: EdgeInsets.all(10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+                        RaisedButton(
+                          child: Text('Powrót'),
+                          elevation: 5.0,
+                          color: Theme.of(context).accentColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(10.0),
+                            side: BorderSide(color: Colors.black),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 5.0, horizontal: 0.0),
+                          onPressed: () {
+                            setState(() {
+                              options = 0;
+                            });
+                          },
                         ),
-                        padding: EdgeInsets.symmetric(
-                            vertical: 5.0, horizontal: 0.0),
-                        onPressed: () {
-                          setState(() {
-                            options = 0;
-                          });
-                        },
-                      ),
+                        RaisedButton(
+                          child: Text('Galeria'),
+                          elevation: 5.0,
+                          color: Theme.of(context).accentColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(10.0),
+                            side: BorderSide(color: Colors.black),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 5.0, horizontal: 0.0),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                imgGallery = [
+                                  parks.parksList[element].image2,
+                                  parks.parksList[element].image3,
+                                  parks.parksList[element].image4,
+                                  parks.parksList[element].image5,
+                                ];
+                                return ParkGallery(
+                                    p[element].parkName, imgGallery);
+                              }),
+                            );
+                          },
+                        ),
+                      ],
                     ),
                   ),
                 ],

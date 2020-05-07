@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'curiosities.dart';
-import 'location.dart';
-import 'news.dart';
+import 'curiosities_card.dart';
+import 'location_card.dart';
+import 'news_card.dart';
+import 'news_list.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -23,32 +24,33 @@ class _HomeState extends State<Home> {
   //   });
   // }
 
-  int _newsOption = 0;
-  void _newsBatton(_newsOption) { ///////////////////////??????????????????????????????????????????
-    setState(() {
-      _newsOption = 1;
-    });
-    return _newsOption;
-  }
+  // int _newsOption = 0;
+  // void _newsBatton(_newsOption) { ///////////////////////??????????????????????????????????????????
+  //   setState(() {
+  //     _newsOption = 1;
+  //   });
+  //   return _newsOption;
+  // }
 
   @override
   Widget build(BuildContext context) {
-    print(_newsOption);
-    return (_newsOption == 0)
-        ? Container(
-            color: Theme.of(context).backgroundColor,
-            child: Column(
-              children: <Widget>[
-                News(news, _newsBatton),
-                Curiosities(curiosities),
-                Location(),
-              ],
-            ))
-        : Container(child: RaisedButton(child: Text('aaa') ,onPressed: (){
-          setState(() {
-            _newsOption = 0;
-          });
-        }), );
+    return SingleChildScrollView(
+      child: Container(
+          color: Theme.of(context).backgroundColor,
+          child: Column(
+            children: <Widget>[
+              NewsCard(news),
+              Curiosities(curiosities),
+              Location(),
+              RaisedButton(
+                  child: Text('News'),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => NewsList()));
+                  })
+            ],
+          )),
+    );
   }
 
   String news =

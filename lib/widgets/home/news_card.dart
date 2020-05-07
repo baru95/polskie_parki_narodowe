@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class News extends StatelessWidget {
+class NewsCard extends StatelessWidget {
   final String _news;
-  final Function _options;
-  News(this._news, this._options);
+  // final Function _options;
+  NewsCard(this._news);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -52,7 +52,7 @@ class News extends StatelessWidget {
                       ),
                       padding:
                           EdgeInsets.symmetric(vertical: 5.0, horizontal: 0.0),
-                      onPressed: () => _options,
+                      onPressed: () {},
                     ),
                   ],
                 ),
