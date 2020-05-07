@@ -8,15 +8,6 @@ class Result extends StatelessWidget {
 
   String get resultPhase {
     String resultText = 'Twój wynik: $resultScore/10';
-    // if (resultScore < 3) {
-    //   resultText = 'Jest bardzo źle!';
-    // } else if (resultScore <= 5) {
-    //   resultText = 'Nie jest najgorzej!';
-    // } else if (resultScore <= 8) {
-    //   resultText = 'Dobry wynik!';
-    // } else {
-    //   resultText = 'Gratulacje!';
-    // }
 
     return resultText;
   }

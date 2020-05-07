@@ -12,9 +12,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Parki Narodowe',
       theme: ThemeData(
-        primaryColor: Colors.green[900],
-        accentColor: Colors.green,
-      ),
+          primaryColor: Colors.green[900],
+          accentColor: Colors.green,
+          backgroundColor: Colors.lightGreen[200]),
       home: MyHomePage(title: 'Polskie Parki Narodowe'),
       debugShowCheckedModeBanner: false, //map
     );
@@ -31,13 +31,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final _pageOption = [Home(), AboutParks(), Questionnaire()]; //
+  final _pageOption = [Home(), AboutParks(), Questionnaire()];
+  // var _pageController = PageController();
 
   int _selectedIndex = 0;
 
   void _selectNavigation(index) {
     setState(() {
       _selectedIndex = index;
+      // _pageController.animateToPage(_selectedIndex,
+      //     duration: Duration(milliseconds: 200), curve: Curves.linear);
     });
   }
 
@@ -53,7 +56,16 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: _pageOption[_selectedIndex],
+      body: 
+      _pageOption[_selectedIndex],
+      // PageView(
+      //   children: _pageOption,
+      //   onPageChanged: (index){
+      //     setState(() {
+      //       _selectedIndex = index;
+      //     });
+      //   },
+      // ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(

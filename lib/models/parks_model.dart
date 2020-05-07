@@ -4,16 +4,20 @@ class Park {
   String parkName;
   String address;
   String description;
+  String moreDescription;
   String image;
   LatLng locationCoords;
-  int phone;
+  String phone;
+  String area;
 
   Park({
     this.parkName,
     this.address,
     this.description,
+    this.moreDescription,
     this.locationCoords,
     this.image,
     this.phone,
+    this.area,
   });
 }

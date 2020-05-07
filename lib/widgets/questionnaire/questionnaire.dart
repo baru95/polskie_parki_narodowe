@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './quiz.dart';
 import 'result.dart';
+import 'start_quiz.dart';
 
 class Questionnaire extends StatefulWidget {
   @override
@@ -28,7 +29,7 @@ class _QuestionnaireState extends State<Questionnaire> {
     });
 
     _totalScore += score;
-    
+
     // print(_totalScore);
     // print(_questionIndex);
 
@@ -38,18 +39,31 @@ class _QuestionnaireState extends State<Questionnaire> {
     //   print('No more question!');
     // }
   }
+
   ////////////////////////////
+  ///
+  var obraz =
+      'https://www.wykop.pl/cdn/c3201142/comment_C2t5foRhkokqBDyZXPNnXWyp79gJDZLO,wat.jpg?author=gorzka&auth=e975b4b1b3963a2ebaf2a15fc080f8ff';
+  var option = 0;
+  void selectOption() {
+    setState(() {
+      option = 1;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: (_questionIndex < _questions.length)
-          ? Quiz(
-              answerQuestion: _answerQuestion,
-              questionIndex: _questionIndex,
-              questions: _questions)
-          : Result(_totalScore, _resetQuiz),
-    );
+    return (option == 0)
+        ? StartQuiz(obraz, selectOption)
+        : Container(
+            color: Theme.of(context).backgroundColor,
+            child: (_questionIndex < _questions.length)
+                ? Quiz(
+                    answerQuestion: _answerQuestion,
+                    questionIndex: _questionIndex,
+                    questions: _questions)
+                : Result(_totalScore, _resetQuiz),
+          );
 
     // return Container(
     //   padding: EdgeInsets.all(10),
@@ -93,7 +107,7 @@ class _QuestionnaireState extends State<Questionnaire> {
     // );
   }
 
-    final _questions = const [
+  final _questions = const [
     {
       'querstionText': 'Czy należy dbać o środowisko?',
       'answers:': [
@@ -107,10 +121,13 @@ class _QuestionnaireState extends State<Questionnaire> {
       'answers:': [
         {'text': 'dym z komina', 'score': 0},
         {'text': 'gatunek smoka', 'score': 0},
-        {'text': 'bardzo zanieczyszczone powietrze wiszące nad miastem', 'score': 1},
+        {
+          'text': 'bardzo zanieczyszczone powietrze wiszące nad miastem',
+          'score': 1
+        },
       ]
     },
-        {
+    {
       'querstionText': 'Co się robi z zużytymi bateriami?',
       'answers:': [
         {'text': 'wyrzuca się do specjalnego pojemnika', 'score': 1},
@@ -126,12 +143,16 @@ class _QuestionnaireState extends State<Questionnaire> {
         {'text': 'jedna z warstw na oceanie', 'score': 0},
       ]
     },
-        {
+    {
       'querstionText': 'Co to jest recykling?',
       'answers:': [
         {'text': 'gra komputerowa', 'score': 0},
         {'text': 'dyscyplina sportowa', 'score': 0},
-        {'text': 'powtórne przetwarzanie zużytych materiałów w celu wykorzystania ich ponownie', 'score': 1},
+        {
+          'text':
+              'powtórne przetwarzanie zużytych materiałów w celu wykorzystania ich ponownie',
+          'score': 1
+        },
       ]
     },
     {
@@ -142,7 +163,7 @@ class _QuestionnaireState extends State<Questionnaire> {
         {'text': '34', 'score': 0},
       ]
     },
-        {
+    {
       'querstionText': 'Do żółtego pojemnika na odpady wyrzucimy:',
       'answers:': [
         {'text': 'metal', 'score': 1},
@@ -158,7 +179,7 @@ class _QuestionnaireState extends State<Questionnaire> {
         {'text': 'metal', 'score': 0},
       ]
     },
-        {
+    {
       'querstionText': 'Jednym ze sposobów dbania o środowisko jest:',
       'answers:': [
         {'text': 'częste jeżdżenie samochodem', 'score': 0},
