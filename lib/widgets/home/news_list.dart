@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../models/news_model.dart';
+import '../../models/transaction.dart';
 import 'new_transaction.dart';
 import 'transaction_list.dart';
 
@@ -9,24 +9,24 @@ class NewsList extends StatefulWidget {
 }
 
 class _NewsListState extends State<NewsList> {
-  final List<News> _userTransactions = [
-    News(
-      id: 't1',
-      title: 'New Shoes',
-      amount: 69.99,
-      date: DateTime.now(),
-    ),
-    News(
-      id: 't2',
-      title: 'Weekly Groceries',
-      amount: 16.53,
-      date: DateTime.now(),
-    ),
+  final List<Transaction> _userTransactions = [
+    // Transaction(
+    //   id: 't1',
+    //   title: 'New Shoes',
+    //   amount: 69.99,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't2',
+    //   title: 'Weekly Groceries',
+    //   amount: 16.53,
+    //   date: DateTime.now(),
+    // ),
   ];
 
   void _addNewTransaction(
       String txTitle, double txAmount, DateTime chosenDate) {
-    final newTx = News(
+    final newTx = Transaction(
       title: txTitle,
       amount: txAmount,
       date: chosenDate,

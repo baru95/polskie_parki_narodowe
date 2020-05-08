@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../../models/news_model.dart';
-
-
+import '../../models/transaction.dart';
 
 class TransactionList extends StatelessWidget {
-  final List<News> transactions;
+  final List<Transaction> transactions;
   final Function deleteTx;
 
   TransactionList(this.transactions, this.deleteTx);
