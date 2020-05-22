@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../../models/transaction.dart';
+import 'package:polskie_parki_narodowe/models/news_model.dart';
+
 
 class TransactionList extends StatelessWidget {
-  final List<Transaction> transactions;
+  final List<News> transactions;
   final Function deleteTx;
 
   TransactionList(this.transactions, this.deleteTx);
@@ -15,7 +16,7 @@ class TransactionList extends StatelessWidget {
             children: <Widget>[
               Text(
                 'No transactions added yet!',
-                style: Theme.of(context).textTheme.title,
+                style: Theme.of(context).textTheme.bodyText1, //body zamiast title
               ),
               SizedBox(
                 height: 20,
@@ -37,18 +38,9 @@ class TransactionList extends StatelessWidget {
                   horizontal: 5,
                 ),
                 child: ListTile(
-                  leading: CircleAvatar(
-                    radius: 30,
-                    child: Padding(
-                      padding: EdgeInsets.all(6),
-                      child: FittedBox(
-                        child: Text('\$${transactions[index].amount}'),
-                      ),
-                    ),
-                  ),
                   title: Text(
                     transactions[index].title,
-                    style: Theme.of(context).textTheme.title,
+                    style: Theme.of(context).textTheme.bodyText1,
                   ),
                   subtitle: Text(
                     DateFormat.yMMMd().format(transactions[index].date),

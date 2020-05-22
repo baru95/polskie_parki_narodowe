@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
+import '../../models/news_model.dart';
+import '../../widgets/home/transaction_list.dart';
+import '../main_button.dart';
 import 'curiosities_card.dart';
 import 'location_card.dart';
+import 'new_transaction.dart';
 import 'news_card.dart';
-import 'news_list.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -11,50 +15,145 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  /////////
-  // int selectedItem = 0;
-  // var pages = ['pierwszy', 'drugi', 'trzeci'];
-  // var pageController= PageController();
+  int _indexHomeNavigation = 0; //1-lista aktualności 2-lista ciekawostek
 
-  // void selectNavigation(index) {
-  //   setState(() {
-  //     selectedItem = index;
-  //     pageController.animateToPage(selectedItem,
-  //         duration: Duration(milliseconds: 200), curve: Curves.linear);
-  //   });
-  // }
+  void _showNewsList() {
+    setState(() {
+      _indexHomeNavigation = 1;
+    });
+  }
 
-  // int _newsOption = 0;
-  // void _newsBatton(_newsOption) { ///////////////////////??????????????????????????????????????????
-  //   setState(() {
-  //     _newsOption = 1;
-  //   });
-  //   return _newsOption;
-  // }
+  void _showCuriositiesList() {
+    setState(() {
+      _indexHomeNavigation = 2;
+    });
+  }
 
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-          color: Theme.of(context).backgroundColor,
-          child: Column(
-            children: <Widget>[
-              NewsCard(news),
-              Curiosities(curiosities),
-              Location(),
-              RaisedButton(
-                  child: Text('News'),
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => NewsList()));
-                  })
-            ],
-          )),
+  final List<News> _userTransactions = [
+    News(
+      id: 't1',
+      title:
+          'Zgodnie z rekomendacją Ministra Środowiska Michała Wosia, od poniedziałku 20 kwietnia można swobodnie wchodzić na teren parków narodowych w całym kraju.',
+      date: DateTime.now(),
+    ),
+  ];
+
+  void _addNewTransaction(String txTitle, DateTime chosenDate) {
+    final newTx = News(
+      title: txTitle,
+      date: chosenDate,
+      id: DateTime.now().toString(),
+    );
+
+    setState(() {
+      _userTransactions.add(newTx);
+    });
+  }
+
+  void _startAddNewTransaction(BuildContext ctx) {
+    showModalBottomSheet(
+      context: ctx,
+      builder: (_) {
+        return GestureDetector(
+          onTap: () {},
+          child: NewTransaction(_addNewTransaction),
+          behavior: HitTestBehavior.opaque,
+        );
+      },
     );
   }
 
-  String news =
-      'Zgodnie z rekomendacją Ministra Środowiska Michała Wosia, od poniedziałku 20 kwietnia można swobodnie wchodzić na teren parków narodowych w całym kraju.';
+  void _deleteTransaction(String id) {
+    setState(() {
+      _userTransactions.removeWhere((tx) => tx.id == id);
+    });
+  }
+
+  Widget _showHomePage() {
+    return Column(
+      children: <Widget>[
+        NewsCard(
+          _userTransactions[_userTransactions.length - 1].title,
+          DateFormat.yMd()
+              .format(_userTransactions[_userTransactions.length - 1].date),
+        ),
+        CuriositiesCard(curiosities),
+        Location(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            MainButton(
+              buttonName: 'Aktualności',
+              buttonAction: _showNewsList,
+            ),
+            MainButton(
+              buttonName: 'Ciekawostki',
+              buttonAction: _showCuriositiesList,
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
+  Widget _goToNewsList() {
+    return Column(
+      children: <Widget>[
+        Container(
+          width: double.infinity,
+          height: 300,
+          child: TransactionList(_userTransactions, _deleteTransaction),
+        ),
+        RaisedButton(
+            child: Icon(Icons.add),
+            elevation: 5.0,
+            color: Theme.of(context).accentColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: new BorderRadius.circular(10.0),
+              side: BorderSide(color: Colors.black),
+            ),
+            padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 0.0),
+            onPressed: () => _startAddNewTransaction(context)),
+      ],
+    );
+  }
+
+  Widget _goToCuriositiesList() {
+    return Column(
+      children: <Widget>[
+        Container(
+          width: double.infinity,
+          child: TransactionList(_userTransactions, _deleteTransaction),
+        ),
+        RaisedButton(
+            child: Icon(Icons.add),
+            elevation: 5.0,
+            color: Theme.of(context).accentColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: new BorderRadius.circular(10.0),
+              side: BorderSide(color: Colors.black),
+            ),
+            padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 0.0),
+            onPressed: () => _startAddNewTransaction(context)),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: SingleChildScrollView(
+        child: Container(
+          color: Theme.of(context).backgroundColor,
+          child: (_indexHomeNavigation == 0)
+              ? _showHomePage()
+              : (_indexHomeNavigation == 1)
+                  ? _goToNewsList()
+                  : _goToCuriositiesList(),
+        ),
+      ),
+    );
+  }
 
   final curiosities = [
     'Póki co ustanowiono 23 parki narodowe w Polsce, ale ich liczba może w przyszłości wzrosnąć.',

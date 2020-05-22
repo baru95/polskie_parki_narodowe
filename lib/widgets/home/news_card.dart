@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class NewsCard extends StatelessWidget {
   final String _news;
-  // final Function _options;
-  NewsCard(this._news);
+  final String _newsDate;
+
+  NewsCard(this._news, this._newsDate);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,7 +14,6 @@ class NewsCard extends StatelessWidget {
         elevation: 5,
         child: Container(
           width: double.infinity,
-          // height: 100,
           child: Column(
             children: <Widget>[
               Container(
@@ -42,17 +43,23 @@ class NewsCard extends StatelessWidget {
                         fontSize: 18,
                       ),
                     ),
-                    RaisedButton(
-                      child: Text('Więcej'),
-                      elevation: 5.0,
-                      color: Theme.of(context).accentColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(10.0),
-                        side: BorderSide(color: Colors.black),
-                      ),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 5.0, horizontal: 0.0),
-                      onPressed: () {},
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(_newsDate),
+                        RaisedButton(
+                          child: Text('Więcej'),
+                          elevation: 5.0,
+                          color: Theme.of(context).accentColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(10.0),
+                            side: BorderSide(color: Colors.black),
+                          ),
+                          padding:
+                              EdgeInsets.symmetric(vertical: 5.0, horizontal: 0.0),
+                          onPressed: () {},
+                        ),
+                      ],
                     ),
                   ],
                 ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class Curiosities extends StatelessWidget {
+class CuriositiesCard extends StatelessWidget {
   final curiosities;
 
-  Curiosities(this.curiosities);
+  CuriositiesCard(this.curiosities);
 
   @override
   Widget build(BuildContext context) {
@@ -39,15 +39,6 @@ class Curiosities extends StatelessWidget {
                   style: TextStyle(fontSize: 18),
                 ),
               ),
-              // Text('aaa')
-              //               PageView(
-              //   children: _pageOption,
-              //   onPageChanged: (index){
-              //     setState(() {
-              //       _selectedIndex = index;
-              //     });
-              //   },
-              // ),
             ],
           ),
         ),

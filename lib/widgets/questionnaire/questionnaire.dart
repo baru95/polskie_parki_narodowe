@@ -9,15 +9,13 @@ class Questionnaire extends StatefulWidget {
 }
 
 class _QuestionnaireState extends State<Questionnaire> {
-  // final _formKey = GlobalKey<FormState>();
-  // String _name = "";
-
-  ////////////////////////////
+  var _quizOptions = 0;
   var _questionIndex = 0;
   var _totalScore = 0;
 
   void _resetQuiz() {
     setState(() {
+      _quizOptions = 0;
       _questionIndex = 0;
       _totalScore = 0;
     });
@@ -29,32 +27,21 @@ class _QuestionnaireState extends State<Questionnaire> {
     });
 
     _totalScore += score;
-
-    // print(_totalScore);
-    // print(_questionIndex);
-
-    // if (_questionIndex < _questions.length) {
-    //   print('We have more questions!');
-    // } else {
-    //   print('No more question!');
-    // }
   }
 
   ////////////////////////////
   ///
-  var obraz =
-      'https://www.wykop.pl/cdn/c3201142/comment_C2t5foRhkokqBDyZXPNnXWyp79gJDZLO,wat.jpg?author=gorzka&auth=e975b4b1b3963a2ebaf2a15fc080f8ff';
-  var option = 0;
-  void selectOption() {
+
+  void _startQuizButton() {
     setState(() {
-      option = 1;
+      _quizOptions = 1;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return (option == 0)
-        ? StartQuiz(obraz, selectOption)
+    return (_quizOptions == 0)
+        ? StartQuiz(_pictureStartQuiz, _startQuizButton)
         : Container(
             color: Theme.of(context).backgroundColor,
             child: (_questionIndex < _questions.length)
@@ -64,48 +51,10 @@ class _QuestionnaireState extends State<Questionnaire> {
                     questions: _questions)
                 : Result(_totalScore, _resetQuiz),
           );
-
-    // return Container(
-    //   padding: EdgeInsets.all(10),
-    //   child: Form(
-    //     key: _formKey,
-    //     autovalidate: true,
-    //     child: Column(
-    //       children: <Widget>[
-    //         TextFormField(
-    //           onSaved: (String val) => setState(() => _name = val),
-    //           validator: (value) {
-    //             if (value.isEmpty) {
-    //               return "Musisz podać imię";
-    //             }
-
-    //             if (value.length < 2) {
-    //               return "Imię musi mieć więcej niż jeden znak";
-    //             }
-    //           },
-    //           decoration: InputDecoration(
-    //               hintText: 'Name',
-    //               helperText: 'This has to be over two characters in length.'),
-    //         ),
-    //         RaisedButton(
-    //           child: Text('Submit'),
-    //           onPressed: () {
-    //             if (_formKey.currentState.validate()) {
-    //               _formKey.currentState.save();
-    //               Scaffold.of(context)
-    //                   .showSnackBar(SnackBar(content: Text('This is valid!')));
-    //             } else {
-    //               Scaffold.of(context)
-    //                   .showSnackBar(SnackBar(content: Text('Not valid!')));
-    //             }
-    //           },
-    //         ),
-    //         Text(_name),
-    //       ],
-    //     ),
-    //   ),
-    // );
   }
+
+  var _pictureStartQuiz =
+      'https://www.wykop.pl/cdn/c3201142/comment_C2t5foRhkokqBDyZXPNnXWyp79gJDZLO,wat.jpg?author=gorzka&auth=e975b4b1b3963a2ebaf2a15fc080f8ff';
 
   final _questions = const [
     {

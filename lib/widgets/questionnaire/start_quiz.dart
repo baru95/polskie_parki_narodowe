@@ -1,57 +1,51 @@
 import 'package:flutter/material.dart';
 
+import '../main_button.dart';
+
 class StartQuiz extends StatelessWidget {
-  final String obraz;
-  final Function options;
-  StartQuiz(this.obraz, this.options);
+  final String _pictureStartQuiz;
+  final Function _startQuizButton;
+  StartQuiz(this._pictureStartQuiz, this._startQuizButton);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-            color: Theme.of(context).backgroundColor,
-            child: Center(
+      color: Theme.of(context).backgroundColor,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Card(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Card(
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          padding: EdgeInsets.all(15),
-                          child: Text(
-                            'Sprawdź swoją wiedzę na temat ochrony środowiska!',
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              foreground: Paint()
-                                ..style = PaintingStyle.stroke
-                                ..strokeWidth = 1.5
-                                ..color = Colors.black,
-                            ),
-                          ),
-                        ),
-                        Container(
-                            width: 350,
-                            height: 200,
-                            child: Image.network(obraz)),
-                      ],
+                  Container(
+                    padding: EdgeInsets.all(15),
+                    child: Text(
+                      'Sprawdź swoją wiedzę na temat ochrony środowiska!',
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        foreground: Paint()
+                          ..style = PaintingStyle.stroke
+                          ..strokeWidth = 1.5
+                          ..color = Colors.black,
+                      ),
                     ),
                   ),
-                  RaisedButton(
-                    child: Text('Więcej'),
-                    elevation: 5.0,
-                    color: Theme.of(context).accentColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0),
-                      side: BorderSide(color: Colors.black),
-                    ),
-                    padding:
-                        EdgeInsets.symmetric(vertical: 5.0, horizontal: 0.0),
-                    onPressed: options,
-                  ),
+                  Container(
+                      width: 350,
+                      height: 200,
+                      child: Image.network(_pictureStartQuiz)),
                 ],
               ),
             ),
-          );
+            MainButton(
+              buttonName: 'Więcej',
+              buttonAction: _startQuizButton,
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

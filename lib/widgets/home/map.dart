@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 
+import '../main_button.dart';
+
 class Location extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    void _backHomePage() {
+      Navigator.pop(context);
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Lokalizacja'),
       ),
       body: Center(
-        child: RaisedButton(
-          elevation: 5,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Powrót!'),
+        child: MainButton(
+          buttonName: 'Powrót',
+          buttonAction: _backHomePage,
         ),
       ),
     );
