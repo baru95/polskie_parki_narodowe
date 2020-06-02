@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'widgets/login_panel.dart';
+import 'widgets/main_drawer.dart';
 import 'widgets/parks/about_parks.dart';
 import 'widgets/home/home.dart';
 import 'widgets/questionnaire/questionnaire.dart';
@@ -44,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // drawer: MainDrawer(),
       appBar: AppBar(
         title: Text(widget.title),
         actions: <Widget>[
@@ -64,27 +66,34 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             title: Text('Strona główna'),
+            // backgroundColor: Theme.of(context).accentColor
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.local_florist),
             title: Text('Parki'),
+            // backgroundColor: Theme.of(context).accentColor
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.assignment),
             title: Text('Ankieta'),
+            // backgroundColor: Theme.of(context).accentColor
           ),
         ],
         currentIndex: _selectedIndex,
         backgroundColor: Theme.of(context).accentColor,
         selectedItemColor: Colors.white,
         onTap: _selectNavigation,
+        // type: BottomNavigationBarType.shifting
       ),
     );
   }
 
   /////////////////////////////////logowanie2
-  final usernameController = TextEditingController();
-  final passwordController = TextEditingController();
+  static final usernameController = new TextEditingController();
+  static final passwordController = new TextEditingController();
+
+  var l = '';
+  var h = '';
 
   final logo = Hero(
     tag: 'logo',
@@ -96,34 +105,37 @@ class _MyHomePageState extends State<MyHomePage> {
   );
 
   // final txtUserName = TextField(
-  //     controller: usernameController,
-  //     decoration: InputDecoration(
-  //         hintText: 'Username',
-  //         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-  //         border:
-  //             OutlineInputBorder(borderRadius: BorderRadius.circular(30.0))));
-
-  // final txtPassword = TextField(
-  //     controller: passwordController,
-  //     obscureText: true,
-  //     decoration: InputDecoration(
-  //         hintText: 'Password',
-  //         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-  //         border:
-  //             OutlineInputBorder(borderRadius: BorderRadius.circular(30.0))));
-
-  // final btnLogin = RaisedButton(
-  //   child: Text('Login'),
-  //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-  //   onPressed: () {
-  //     if (usernameController != null &&
-  //         usernameController.text == "abc" &&
-  //         passwordController != null &&
-  //         passwordController.text == "123") {
-  //       print('Zalogowano');
-  //     }
-  //   },
+  //   controller: usernameController,
   // );
+  final txtUserName = TextField(
+      controller: usernameController,
+      decoration: InputDecoration(
+          hintText: 'Username',
+          contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+          border:
+              OutlineInputBorder(borderRadius: BorderRadius.circular(30.0))));
+
+  final txtPassword = TextField(
+      controller: passwordController,
+      obscureText: true,
+      decoration: InputDecoration(
+          hintText: 'Password',
+          contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+          border:
+              OutlineInputBorder(borderRadius: BorderRadius.circular(30.0))));
+
+  final btnLogin = RaisedButton(
+    child: Text('Login'),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+    onPressed: () {
+      if (usernameController != null &&
+          usernameController.text == "abc" &&
+          passwordController != null &&
+          passwordController.text == "123") {
+        print('Zalogowano');
+      }
+    },
+  );
 
   Widget login2() {
     return new Scaffold(
@@ -139,15 +151,15 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(
                 height: 20.0,
               ),
-              // txtUserName,
+              txtUserName,
               SizedBox(
                 height: 8.0,
               ),
-              // txtPassword,
+              txtPassword,
               SizedBox(
                 height: 20.0,
               ),
-              // btnLogin,
+              btnLogin,
             ],
           ),
         ));

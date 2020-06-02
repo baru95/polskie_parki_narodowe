@@ -122,11 +122,11 @@ class _AboutParksState extends State<AboutParks> {
               children: <Widget>[
                 MainButton(
                   buttonName: 'Powrót',
-                  buttonAction: _returnToParkList,
+                  buttonAction: _backToParkList,
                 ),
                 MainButton(
                   buttonName: 'Galeria',
-                  buttonAction: _goToParksGallery,
+                  buttonAction: _goToParksGallery,    
                 ),
               ],
             ),
@@ -136,7 +136,7 @@ class _AboutParksState extends State<AboutParks> {
     );
   }
 
-  void _returnToParkList() {
+  void _backToParkList() {
     setState(() {
       _navigateParksTab = 0;
     });

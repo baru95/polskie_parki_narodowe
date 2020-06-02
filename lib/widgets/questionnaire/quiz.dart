@@ -15,13 +15,27 @@ class Quiz extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Container(
       child: Column(
         children: [
           Question(questions[questionIndex]['querstionText']),
-          ...(questions[questionIndex]['answers:'] as List<Map<String,Object>>).map((answer) {
-            return Answer(() => answerQuestion(answer['score']), answer['text']);
-          }).toList(),
+          ...(questions[questionIndex]['answers:']
+                      as List<Map<String, Object>>)
+                  .map((answer) {
+                return Answer(
+                    () => answerQuestion(answer['score']), answer['text']);
+              }).toList(),
+          // GridView(
+          //   children: <Widget>[
+              
+          //   ],
+          //   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          //     maxCrossAxisExtent: 200,
+          //     childAspectRatio: 3 / 2,
+          //     crossAxisSpacing: 20,
+          //     mainAxisSpacing: 20,
+          //   ),
+          // )
         ],
       ),
     );

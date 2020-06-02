@@ -14,7 +14,7 @@ class Result extends StatefulWidget {
 
 class _ResultState extends State<Result> {
   String get resultPhase {
-    String resultText = 'Twój wynik: ${widget.resultScore}/10';
+    String resultText = 'Twój wynik: ${widget.resultScore}/17';
 
     return resultText;
   }
