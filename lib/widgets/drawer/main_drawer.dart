@@ -11,6 +11,9 @@
 
 import 'package:flutter/material.dart';
 
+import 'curiosities_panel.dart';
+import 'news_panel.dart';
+
 class MainDrawer extends StatelessWidget {
   Widget buildListTile(String title, IconData icon, Function tapHandler) {
     return ListTile(
@@ -51,8 +54,18 @@ class MainDrawer extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          buildListTile('Panel aktualności', Icons.brightness_auto, () {}),
-          buildListTile('Panel ciekawostek', Icons.new_releases, () {}),
+          buildListTile('Panel aktualności', Icons.brightness_auto, () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => NewsPanel()),
+            );
+          }),
+          buildListTile('Panel ciekawostek', Icons.new_releases, () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CuriositiesPanel()),
+            );
+          }),
         ],
       ),
     );

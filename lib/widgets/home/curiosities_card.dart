@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class CuriositiesCard extends StatelessWidget {
   final curiosities;
+  final Function next;
+  final Function previous;
 
-  CuriositiesCard(this.curiosities);
+  CuriositiesCard(this.curiosities, this.next, this.previous);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,7 @@ class CuriositiesCard extends StatelessWidget {
         elevation: 5,
         child: Container(
           width: double.infinity,
-          height: 110,
+          height: 160,
           child: Column(
             children: <Widget>[
               Container(
@@ -32,12 +34,30 @@ class CuriositiesCard extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.all(5),
-                child: Text(
-                  curiosities[3],
-                  style: TextStyle(fontSize: 18),
-                ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.all(5),
+                    child: Text(
+                      curiosities,
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      FlatButton(
+                        child: Icon(Icons.navigate_before),
+                        onPressed: previous,
+                      ),
+                      FlatButton(
+                        child: Icon(Icons.navigate_next),
+                        onPressed: next,
+                      )
+                    ],
+                  )
+                ],
               ),
             ],
           ),

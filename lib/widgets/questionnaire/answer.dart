@@ -11,38 +11,38 @@ class Answer extends StatelessWidget {
     return 
     Container(
         width: double.infinity,
-        child: InkWell(
-          splashColor: Theme.of(context).primaryColor,
-          onTap: selectHandler,
-          child: Container(
-            padding: const EdgeInsets.all(10),
-            // decoration: BoxDecoration(
-            //   gradient: LinearGradient(
-            //     colors: [
-            //       Theme.of(context).primaryColor.withOpacity(0.3),
-            //       Theme.of(context).primaryColor,
-            //     ],
-            //     begin: Alignment.topLeft,
-            //     end: Alignment.bottomRight,
+        // child: InkWell(
+        //   splashColor: Theme.of(context).primaryColor,
+        //   onTap: selectHandler,
+        //   child: Container(
+        //     padding: const EdgeInsets.all(10),
+        //     decoration: BoxDecoration(
+        //       gradient: LinearGradient(
+        //         colors: [
+        //           Theme.of(context).primaryColor.withOpacity(0.3),
+        //           Theme.of(context).primaryColor,
+        //         ],
+        //         begin: Alignment.topLeft,
+        //         end: Alignment.bottomRight,
+        //       ),
+        //       borderRadius: BorderRadius.circular(5),
+        //     ),
+            // child: Card(
+            //   child: Text(answerText),
+            //   shape: RoundedRectangleBorder(
+            //     borderRadius: BorderRadius.circular(15),
             //   ),
-            //   borderRadius: BorderRadius.circular(5),
+            //   elevation: 4,
+            //   margin: EdgeInsets.all(10),
             // ),
-            child: Card(
-              child: Text(answerText),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              elevation: 4,
-              margin: EdgeInsets.all(10),
-            ),
-          ),
-        )
-        // child: RaisedButton(
-        //   color: Theme.of(context).accentColor,
-        //   textColor: Colors.white,
-        //   child: Text(answerText),
-        //   onPressed: selectHandler,
-        // ),
+        //   ),
+        // )
+        child: RaisedButton(
+          color: Theme.of(context).accentColor,
+          textColor: Colors.white,
+          child: Text(answerText),
+          onPressed: selectHandler,
+        ),
         );
   }
 }

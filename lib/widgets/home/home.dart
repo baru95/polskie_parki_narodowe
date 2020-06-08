@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
-import '../../models/news_model.dart';
+import 'package:provider/provider.dart';
+import '../../providers/news_provider.dart';
 // import '../../widgets/home/transaction_list.dart';
-// import '../main_button.dart';
 import 'curiosities_card.dart';
 import 'location_card.dart';
 // import 'new_transaction.dart';
@@ -28,15 +27,6 @@ class _HomeState extends State<Home> {
   //     _indexHomeNavigation = 2;
   //   });
   // }
-
-  final List<News> _userTransactions = [
-    News(
-      id: 't1',
-      title:
-          'Zgodnie z rekomendacją Ministra Środowiska Michała Wosia, od poniedziałku 20 kwietnia można swobodnie wchodzić na teren parków narodowych w całym kraju.',
-      date: DateTime.now(),
-    ),
-  ];
 
   // void _addNewTransaction(String txTitle, DateTime chosenDate) {
   //   final newTx = News(
@@ -68,18 +58,37 @@ class _HomeState extends State<Home> {
   //     _userTransactions.removeWhere((tx) => tx.id == id);
   //   });
   // }
+  int curiositiesIndex = 0;
+
+  void nextCuriosities() {
+    setState(() {
+      (curiositiesIndex < curiosities.length - 1)
+          ? curiositiesIndex += 1
+          : curiositiesIndex = 0;
+    });
+  }
+
+  void previousCuriosities() {
+    setState(() {
+      (curiositiesIndex > 0)
+          ? curiositiesIndex -= 1
+          : curiositiesIndex = curiosities.length - 1;
+    });
+  }
 
   Widget _showHomePage() {
+    final newsData = Provider.of<NewsProvider>(context);
+    final products = newsData.items;
     return Column(
       children: <Widget>[
-        NewsCard(
-          _userTransactions[_userTransactions.length - 1].title,
-          DateFormat.yMd()
-              .format(_userTransactions[_userTransactions.length - 1].date),
-        ),
-        CuriositiesCard(curiosities),
+        NewsCard(products[0].title, DateFormat.yMd().format(products[0].date)
+            // _userTransactions[_userTransactions.length - 1].title,
+            // DateFormat.yMd()
+            //     .format(_userTransactions[_userTransactions.length - 1].date),
+            ),
+        CuriositiesCard(curiosities[curiositiesIndex], nextCuriosities,
+            previousCuriosities),
         Location(),
-        Container(padding: EdgeInsets.only(top: 100), child: Text('data')),
         // Row(
         //   mainAxisAlignment: MainAxisAlignment.spaceAround,
         //   children: <Widget>[
@@ -159,12 +168,14 @@ class _HomeState extends State<Home> {
 
   final curiosities = [
     'Póki co ustanowiono 23 parki narodowe w Polsce, ale ich liczba może w przyszłości wzrosnąć.',
-    'Jednym z planowanych nowych może być Jurajski Park Narodowy, który objąć ma część Wyżyny Krakowsko-Częstochowskiej.'
-        'Pierwszym ustanowionym parkiem narodowym w Polsce był Pieniński Park Narodowy otwarty w 1932 roku.',
-    'Jednym z najciekawszych jest Słowiński Park Narodowy z imponującymi wydmami.',
+    'Jednym z planowanych nowych może być Jurajski Park Narodowy, który objąć ma część Wyżyny Krakowsko-Częstochowskiej.',
+    'Pierwszym ustanowionym parkiem narodowym w Polsce był Pieniński Park Narodowy otwarty w 1932 roku.',
+    // 'Jednym z najciekawszych jest Słowiński Park Narodowy z imponującymi wydmami.',
     'Park Narodowy Gór Stołowych kojarzy się przede wszystkim z widokiem Szczelińca, który złośliwi nazywają polskim Uluru.',
-    'Parki Narodowe w Polsce zajmują około 1% powierzchni - to niedużo. Największy - Biebrzański Park Narodowy - zajmuje nieco poniżej 60 tys. hektarów.',
+    // 'Parki Narodowe w Polsce zajmują około 1% powierzchni - to niedużo. Największy - Biebrzański Park Narodowy - zajmuje nieco poniżej 60 tys. hektarów.',
     'Najchętniej odwiedzanym z polskich parków jest Tatrzański Park Narodowy - cel zarówno letnich, jak i zimowych wycieczek',
     'Najrzadziej odwiedzany, choć niesłusznie, jest Narwiański Park Narodowy - trafia tam ledwie 12 tysięcy osób rocznie.'
   ];
+
+
 }

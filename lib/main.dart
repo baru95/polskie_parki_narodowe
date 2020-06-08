@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import './providers/news_provider.dart';
+import 'package:provider/provider.dart';
 import 'widgets/login_panel.dart';
-import 'widgets/main_drawer.dart';
+import 'widgets/drawer/main_drawer.dart';
 import 'widgets/parks/about_parks.dart';
 import 'widgets/home/home.dart';
 import 'widgets/questionnaire/questionnaire.dart';
@@ -44,46 +46,49 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // drawer: MainDrawer(),
-      appBar: AppBar(
-        title: Text(widget.title),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.people),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => login2()),
-              );
-            },
-          ),
-        ],
-      ),
-      body: _pageOption[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Strona główna'),
-            // backgroundColor: Theme.of(context).accentColor
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.local_florist),
-            title: Text('Parki'),
-            // backgroundColor: Theme.of(context).accentColor
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.assignment),
-            title: Text('Ankieta'),
-            // backgroundColor: Theme.of(context).accentColor
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        backgroundColor: Theme.of(context).accentColor,
-        selectedItemColor: Colors.white,
-        onTap: _selectNavigation,
-        // type: BottomNavigationBarType.shifting
+    return ChangeNotifierProvider(
+      create: (ctx) => NewsProvider(),
+      child: Scaffold(
+        drawer: MainDrawer(),
+        appBar: AppBar(
+          title: Text(widget.title),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.people),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => login2()),
+                );
+              },
+            ),
+          ],
+        ),
+        body: _pageOption[_selectedIndex],
+        bottomNavigationBar: BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text('Strona główna'),
+              // backgroundColor: Theme.of(context).accentColor
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.local_florist),
+              title: Text('Parki'),
+              // backgroundColor: Theme.of(context).accentColor
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.assignment),
+              title: Text('Ankieta'),
+              // backgroundColor: Theme.of(context).accentColor
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          backgroundColor: Theme.of(context).accentColor,
+          selectedItemColor: Colors.white,
+          onTap: _selectNavigation,
+          // type: BottomNavigationBarType.shifting
+        ),
       ),
     );
   }

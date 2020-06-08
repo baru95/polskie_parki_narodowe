@@ -15,6 +15,7 @@ class ParkDetail extends StatelessWidget {
       this.address,
       this.area,
       this.phone});
+      
   @override
   Widget build(BuildContext context) {
     return Card(
