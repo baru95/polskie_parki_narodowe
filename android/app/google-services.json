@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1032783174795",
+    "firebase_url": "https://polskie-parki-narodowe.firebaseio.com",
+    "project_id": "polskie-parki-narodowe",
+    "storage_bucket": "polskie-parki-narodowe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1032783174795:android:0d06560ade02e0b96a888e",
+        "android_client_info": {
+          "package_name": "com.baru.polskie_parki_narodowe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1032783174795-q8ei7m5e2pq3o4gqcf8fvk07ijdpdbdn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1JWYKrYX0K1JDwVE6PJOCaDO8UhR8kSs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1032783174795-q8ei7m5e2pq3o4gqcf8fvk07ijdpdbdn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

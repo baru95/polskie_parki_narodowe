@@ -24,8 +24,11 @@ dependencies:
   # Add the following two lines  #googleMaps
   http: ^0.12.0+1 #googleMaps
   json_serializable: ^2.0.2 #googleMaps
-  provider: ^4.1.2
   grouped_buttons: ^1.0.4
+  firebase_auth: ^0.14.0+5  #baza
+  cloud_firestore: ^0.12.9+4 #baza
+  provider: ^3.1.0 #baza
+  flutter_spinkit: "^4.0.0" #animacja
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

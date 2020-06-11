@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './providers/news_provider.dart';
 import 'package:provider/provider.dart';
-import 'widgets/login_panel.dart';
+// import 'widgets/login_panel.dart';
 import 'widgets/drawer/main_drawer.dart';
 import 'widgets/parks/about_parks.dart';
 import 'widgets/home/home.dart';
@@ -138,6 +138,9 @@ class _MyHomePageState extends State<MyHomePage> {
           passwordController != null &&
           passwordController.text == "123") {
         print('Zalogowano');
+        // setState(() {
+        //   _selectedIndex = 0;
+        // });
       }
     },
   );
@@ -145,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget login2() {
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text("Home Page"),
+          title: new Text("Logowanie"),
         ),
         body: new Center(
           child: new ListView(
@@ -171,75 +174,75 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
 /////////////////////////////////////////////////////
-  Widget login() {
-    // String login = 'abc';
-    // String password = '123';
-    return Container(
-      child: SingleChildScrollView(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          color: Colors.green,
-          child: Stack(
-            children: <Widget>[
-              Align(
-                alignment: Alignment.bottomRight,
-                widthFactor: 0.6,
-                heightFactor: 0.6,
-                child: Material(
-                  borderRadius: BorderRadius.all(Radius.circular(200)),
-                  color: Color.fromRGBO(255, 255, 255, 0.4),
-                  child: Container(
-                    width: 400,
-                    height: 400,
-                  ),
-                ),
-              ),
-              Center(
-                child: Container(
-                  width: 400,
-                  height: 400,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      // Material(
-                      //     elevation: 10.0,
-                      //     borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                      //     child: Padding(
-                      //       padding: const EdgeInsets.all(8.0),
-                      //       child: Image.asset(
-                      //         '../assets/images/flutter-logo.png',
-                      //         width: 80,
-                      //         height: 80,
-                      //       ),
-                      //     ),),
-                      LoginPanel(Icon(Icons.person, color: Colors.white),
-                          'Login', false),
-                      LoginPanel(
-                          Icon(Icons.lock, color: Colors.white), 'Hasło', true),
-                      Container(
-                        width: 150,
-                        child: RaisedButton(
-                          onPressed: () {},
-                          color: Colors.green[900],
-                          textColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10.0))),
-                          child: Text(
-                            'Login',
-                            style: TextStyle(fontSize: 20.0),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+  // Widget login() {
+  //   // String login = 'abc';
+  //   // String password = '123';
+  //   return Container(
+  //     child: SingleChildScrollView(
+  //       child: Container(
+  //         width: MediaQuery.of(context).size.width,
+  //         height: MediaQuery.of(context).size.height,
+  //         color: Colors.green,
+  //         child: Stack(
+  //           children: <Widget>[
+  //             Align(
+  //               alignment: Alignment.bottomRight,
+  //               widthFactor: 0.6,
+  //               heightFactor: 0.6,
+  //               child: Material(
+  //                 borderRadius: BorderRadius.all(Radius.circular(200)),
+  //                 color: Color.fromRGBO(255, 255, 255, 0.4),
+  //                 child: Container(
+  //                   width: 400,
+  //                   height: 400,
+  //                 ),
+  //               ),
+  //             ),
+  //             Center(
+  //               child: Container(
+  //                 width: 400,
+  //                 height: 400,
+  //                 child: Column(
+  //                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  //                   children: <Widget>[
+  //                     // Material(
+  //                     //     elevation: 10.0,
+  //                     //     borderRadius: BorderRadius.all(Radius.circular(50.0)),
+  //                     //     child: Padding(
+  //                     //       padding: const EdgeInsets.all(8.0),
+  //                     //       child: Image.asset(
+  //                     //         '../assets/images/flutter-logo.png',
+  //                     //         width: 80,
+  //                     //         height: 80,
+  //                     //       ),
+  //                     //     ),),
+  //                     LoginPanel(Icon(Icons.person, color: Colors.white),
+  //                         'Login', false),
+  //                     LoginPanel(
+  //                         Icon(Icons.lock, color: Colors.white), 'Hasło', true),
+  //                     Container(
+  //                       width: 150,
+  //                       child: RaisedButton(
+  //                         onPressed: () {},
+  //                         color: Colors.green[900],
+  //                         textColor: Colors.white,
+  //                         shape: RoundedRectangleBorder(
+  //                             borderRadius:
+  //                                 BorderRadius.all(Radius.circular(10.0))),
+  //                         child: Text(
+  //                           'Login',
+  //                           style: TextStyle(fontSize: 20.0),
+  //                         ),
+  //                       ),
+  //                     )
+  //                   ],
+  //                 ),
+  //               ),
+  //             ),
+  //           ],
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 }
