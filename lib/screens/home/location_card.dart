@@ -48,6 +48,7 @@ class Location extends StatelessWidget {
                     child: Icon(Icons.search),
                     elevation: 5.0,
                     color: Theme.of(context).accentColor,
+                    // color: Theme.of(context).accentColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(10.0),
                       side: BorderSide(color: Colors.black),
@@ -56,17 +57,8 @@ class Location extends StatelessWidget {
                     //     EdgeInsets.symmetric(vertical: 5.0, horizontal: 0.0),
                     onPressed: () {},
                   ),
-                  // IconButton(
-                  //   icon: Icon(Icons.search),
-                  //   iconSize: 50,
-                  //   color: Theme.of(context).accentColor,
-                  //   padding:
-                  //       EdgeInsets.symmetric(vertical: 5.0, horizontal: 0.0),
-                  //   onPressed: () {},
-                  // )
                 ],
               ),
-              // AssetImage('assets/images/aktualności.jpg'),
             ],
           ),
         ),

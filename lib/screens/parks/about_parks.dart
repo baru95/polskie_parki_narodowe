@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../main_button.dart';
+import 'package:polskie_parki_narodowe/shared/main_button.dart';
 import './park_gallery.dart';
 import './park_detail.dart';
 import '../../models/parks.dart';
@@ -28,13 +28,13 @@ class _AboutParksState extends State<AboutParks> {
           child: Card(
             elevation: 5,
             child: Container(
-              height: 100.0,
+              height: 150.0,
               child: Row(
                 children: <Widget>[
                   Container(
                     //ZDJĘCIE PARKÓW
-                    height: 100.0,
-                    width: 70.0,
+                    height: 150.0,
+                    width: 100.0,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(5),
@@ -47,7 +47,7 @@ class _AboutParksState extends State<AboutParks> {
                   ),
                   Container(
                     //NAZWA I OPIS
-                    height: 100,
+                    height: 150,
                     child: Padding(
                       padding: EdgeInsets.fromLTRB(10, 2, 0, 0),
                       child: Column(
@@ -68,29 +68,46 @@ class _AboutParksState extends State<AboutParks> {
                                     color: Color.fromARGB(255, 48, 48, 54)),
                               ),
                             ),
-                          )
+                          ),
+                          RaisedButton(
+                            child: Text('Więcej'),
+                            elevation: 5.0,
+                            color: Theme.of(context).accentColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(10.0),
+                              side: BorderSide(color: Colors.black),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 5.0, horizontal: 0.0),
+                            onPressed: () {
+                              setState(() {
+                                _navigateParksTab = 1;
+                                _indexParksList = index;
+                              });
+                            },
+                          ),
                         ],
                       ),
                     ),
                   ),
                   //przycisk dla szczegółów parków
-                  RaisedButton(
-                    child: Text('Więcej'),
-                    elevation: 5.0,
-                    color: Theme.of(context).accentColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0),
-                      side: BorderSide(color: Colors.black),
-                    ),
-                    padding:
-                        EdgeInsets.symmetric(vertical: 5.0, horizontal: 0.0),
-                    onPressed: () {
-                      setState(() {
-                        _navigateParksTab = 1;
-                        _indexParksList = index;
-                      });
-                    },
-                  ),
+                  // RaisedButton(
+                  //   child: Text('Więcej'),
+                  //   elevation: 5.0,
+                  //   color: Theme.of(context).accentColor,
+                  //   shape: RoundedRectangleBorder(
+                  //     borderRadius: new BorderRadius.circular(10.0),
+                  //     side: BorderSide(color: Colors.black),
+                  //   ),
+                  //   padding:
+                  //       EdgeInsets.symmetric(vertical: 5.0, horizontal: 0.0),
+                  //   onPressed: () {
+                  //     setState(() {
+                  //       _navigateParksTab = 1;
+                  //       _indexParksList = index;
+                  //     });
+                  //   },
+                  // ),
                 ],
               ),
             ),
@@ -101,37 +118,43 @@ class _AboutParksState extends State<AboutParks> {
   }
 
   Widget _parkDetails() {
-    return Container(
-      //SZCZEGÓŁY PARKÓW
-      width: double.infinity,
-      child: Column(
-        children: <Widget>[
-          ParkDetail(
-            namePark: p[_indexParksList].parkName,
-            address: p[_indexParksList].address,
-            imagePark: p[_indexParksList].image,
-            moreDescription: p[_indexParksList].moreDescription,
-            phone: p[_indexParksList].phone,
-            area: p[_indexParksList].area,
-          ),
-          Container(
-            //PRZYCISKI PARK DETAIL
-            padding: EdgeInsets.all(10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                MainButton(
-                  buttonName: 'Powrót',
-                  buttonAction: _backToParkList,
-                ),
-                MainButton(
-                  buttonName: 'Galeria',
-                  buttonAction: _goToParksGallery,    
-                ),
-              ],
+    return SingleChildScrollView(
+      child: Container(
+        //SZCZEGÓŁY PARKÓW
+        //     height: (MediaQuery.of(context).size.height -
+        //     MediaQuery.of(context).padding.top) *
+        // 0.85,
+        width: double.infinity,
+        child: Column(
+          children: <Widget>[
+            ParkDetail(
+              namePark: p[_indexParksList].parkName,
+              address: p[_indexParksList].address,
+              imagePark: p[_indexParksList].image,
+              moreDescription: p[_indexParksList].moreDescription,
+              phone: p[_indexParksList].phone,
+              area: p[_indexParksList].area,
+              description: p[_indexParksList].description,
             ),
-          ),
-        ],
+            Container(
+              //PRZYCISKI PARK DETAIL
+              padding: EdgeInsets.all(40),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  MainButton(
+                    buttonName: 'Powrót',
+                    buttonAction: _backToParkList,
+                  ),
+                  MainButton(
+                    buttonName: 'Galeria',
+                    buttonAction: _goToParksGallery,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -159,7 +182,9 @@ class _AboutParksState extends State<AboutParks> {
 
   @override
   Widget build(BuildContext context) {
+    // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return Container(
+        // color: Theme.of(context).backgroundColor,
         color: Theme.of(context).backgroundColor,
         child: (_navigateParksTab < 1) ? _parkList() : _parkDetails());
   }

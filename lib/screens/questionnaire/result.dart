@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../main_button.dart';
+import 'package:polskie_parki_narodowe/shared/main_button.dart';
 
 class Result extends StatefulWidget {
   final int resultScore;
@@ -36,7 +35,7 @@ class _ResultState extends State<Result> {
               textAlign: TextAlign.center,
             ),
             MainButton(
-              buttonName: 'Prześlij wynik!',
+              buttonName: 'Dalej!',
               buttonAction: widget.resetHandler,
             ),
           ],

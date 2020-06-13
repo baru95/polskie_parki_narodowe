@@ -3,11 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 
 class ParkGallery extends StatefulWidget {
   final String parkName;
-  // final String image2;
-  // final String image3;
-  // final String image4;
-  // final String image5;
-  //this.image2, this.image3, this.image4, this.image5
+
   final List imgList;
   ParkGallery(this.parkName, this.imgList);
 
@@ -24,16 +20,6 @@ class _ParkGalleryState extends State<ParkGallery> {
 
   int _current = 0;
 
-  // List imgList = [
-  //   image2, image3, image4, image5
-
-  //   // 'https://images.unsplash.com/photo-1502117859338-fd9daa518a9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-  //   // 'https://images.unsplash.com/photo-1554321586-92083ba0a115?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-  //   // 'https://images.unsplash.com/photo-1536679545597-c2e5e1946495?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-  //   // 'https://images.unsplash.com/photo-1543922596-b3bbaba80649?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-  //   // 'https://images.unsplash.com/photo-1502943693086-33b5b1cfdf2f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80'
-  // ];
-
   List<T> map<T>(List list, Function handler) {
     List<T> result = [];
     for (var i = 0; i < list.length; i++) {
@@ -46,6 +32,7 @@ class _ParkGalleryState extends State<ParkGallery> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor,
         title: Text(widget.parkName),
       ),
       body: Container(
@@ -77,7 +64,7 @@ class _ParkGalleryState extends State<ParkGallery> {
                       width: MediaQuery.of(context).size.width,
                       margin: EdgeInsets.symmetric(horizontal: 10.0),
                       decoration: BoxDecoration(
-                        color: Colors.green,
+                        color: Theme.of(context).primaryColor,
                       ),
                       child: Image.network(
                         imgUrl,
@@ -100,7 +87,9 @@ class _ParkGalleryState extends State<ParkGallery> {
                   margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: _current == index ? Colors.redAccent : Colors.green,
+                    color: _current == index
+                        ? Colors.redAccent
+                        : Theme.of(context).accentColor,
                   ),
                 );
               }),
@@ -109,7 +98,7 @@ class _ParkGalleryState extends State<ParkGallery> {
               height: 20.0,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 OutlineButton(
                   onPressed: goToPrevious,

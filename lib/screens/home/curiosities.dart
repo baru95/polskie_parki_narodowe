@@ -15,13 +15,14 @@ class CuriositiesCard extends StatelessWidget {
         elevation: 5,
         child: Container(
           width: double.infinity,
-          height: 160,
+
           child: Column(
             children: <Widget>[
               Container(
                 width: double.infinity,
                 height: 35,
                 color: Theme.of(context).primaryColor,
+                // color: Theme.of(context).primaryColor,
                 child: Center(
                   child: Text(
                     'Ciekawostki',

@@ -4,9 +4,10 @@ import '../../models/question_model.dart';
 
 import './quiz.dart';
 
+import 'ankieta.dart';
 import 'result.dart';
 import 'start_quiz.dart';
-import 'thanks.dart';
+// import 'thanks.dart';
 
 class Questionnaire extends StatefulWidget {
   @override
@@ -19,20 +20,11 @@ class _QuestionnaireState extends State<Questionnaire> {
   var _totalScore = 0;
 
   void _goToForms() {
-    // setState(() {
-    //   _quizOptions = 2;
-    // });
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Thanks()),
+      MaterialPageRoute(builder: (context) => Ankieta()),
     );
   }
-
-  // void _sendForms() {
-  //   setState(() {
-  //     _quizOptions = 4;
-  //   });
-  // }
 
   void _answerQuestion(int score) {
     setState(() {
@@ -54,18 +46,14 @@ class _QuestionnaireState extends State<Questionnaire> {
         // ? buildListView()
         ? StartQuiz(pictureStartQuiz, _startQuizButton)
         : Container(
+            // color: Theme.of(context).backgroundColor,
             color: Theme.of(context).backgroundColor,
             child: (_questionIndex < questions.length)
                 ? Quiz(
                     answerQuestion: _answerQuestion,
                     questionIndex: _questionIndex,
                     questions: questions)
-                : Result(_totalScore, _goToForms)
-            // : (_quizOptions != 2)
-            //     ? Result(_totalScore, _goToForms)
-            //     // : Forms(_totalScore)
-            //     : buildListView(),
-            );
+                : Result(_totalScore, _goToForms));
   }
 
   var pictureStartQuiz =

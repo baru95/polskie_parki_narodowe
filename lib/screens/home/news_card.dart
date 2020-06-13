@@ -20,6 +20,7 @@ class NewsCard extends StatelessWidget {
                 width: double.infinity,
                 height: 35,
                 color: Theme.of(context).primaryColor,
+                // color: Theme.of(context).primaryColor,
                 child: Center(
                   child: Text(
                     'Aktualności',
@@ -47,18 +48,19 @@ class NewsCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(_newsDate),
-                        RaisedButton(
-                          child: Text('Więcej'),
-                          elevation: 5.0,
-                          color: Theme.of(context).accentColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(10.0),
-                            side: BorderSide(color: Colors.black),
-                          ),
-                          padding:
-                              EdgeInsets.symmetric(vertical: 5.0, horizontal: 0.0),
-                          onPressed: () {},
-                        ),
+                        // RaisedButton(
+                        //   child: Text('Więcej'),
+                        //   elevation: 5.0,
+                        //   color: Theme.of(context).accentColor,
+                        //   // color: Theme.of(context).accentColor,
+                        //   shape: RoundedRectangleBorder(
+                        //     borderRadius: new BorderRadius.circular(10.0),
+                        //     side: BorderSide(color: Colors.black),
+                        //   ),
+                        //   padding:
+                        //       EdgeInsets.symmetric(vertical: 5.0, horizontal: 0.0),
+                        //   onPressed: () {},
+                        // ),
                       ],
                     ),
                   ],
