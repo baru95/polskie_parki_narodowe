@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
     return Column(
       children: <Widget>[
         // NewsCard(products[0].title, DateFormat.yMd().format(products[0].date)),
-        NewsCard(products[0].title, '15/5/2020'),
+        NewsCard(products[0].title, date),
         CuriositiesCard(curiosities[curiositiesIndex], nextCuriosities,
             previousCuriosities),
         Location()
@@ -62,6 +62,8 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  final date = '15/5/2020';
 
   final curiosities = [
     // 'Póki co ustanowiono 23 parki narodowe w Polsce, ale ich liczba może w przyszłości wzrosnąć.',
