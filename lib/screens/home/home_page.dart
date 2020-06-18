@@ -64,9 +64,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   final curiosities = [
-    'Póki co ustanowiono 23 parki narodowe w Polsce, ale ich liczba może w przyszłości wzrosnąć.',
+    // 'Póki co ustanowiono 23 parki narodowe w Polsce, ale ich liczba może w przyszłości wzrosnąć.',
     'Jednym z planowanych nowych może być Jurajski Park Narodowy, który objąć ma część Wyżyny Krakowsko-Częstochowskiej.',
-    'Pierwszym ustanowionym parkiem narodowym w Polsce był Pieniński Park Narodowy otwarty w 1932 roku.',
+    // 'Pierwszym ustanowionym parkiem narodowym w Polsce był Pieniński Park Narodowy otwarty w 1932 roku.',
     // 'Jednym z najciekawszych jest Słowiński Park Narodowy z imponującymi wydmami.',
     'Park Narodowy Gór Stołowych kojarzy się przede wszystkim z widokiem Szczelińca, który złośliwi nazywają polskim Uluru.',
     // 'Parki Narodowe w Polsce zajmują około 1% powierzchni - to niedużo. Największy - Biebrzański Park Narodowy - zajmuje nieco poniżej 60 tys. hektarów.',

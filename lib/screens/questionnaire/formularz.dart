@@ -150,8 +150,15 @@ class _FormularzState extends State<Formularz> {
                       color: Theme.of(context).accentColor,
                       child: Text(
                         'Zapisz',
-                        style: TextStyle(color: Colors.white),
+                        // style: TextStyle(color: Colors.white),
                       ),
+                      elevation: 5.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(10.0),
+                        side: BorderSide(color: Colors.black),
+                      ),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 5.0, horizontal: 0.0),
                       onPressed: () async {
                         if (_formKey.currentState.validate()) {
                           await DatabaseService(uid: user.uid).updateUserData(

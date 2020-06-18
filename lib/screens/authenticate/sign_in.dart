@@ -45,7 +45,7 @@ class _SignInState extends State<SignIn> {
                 key: _formKey,
                 child: Column(
                   children: <Widget>[
-                    SizedBox(height: 20.0),
+                    SizedBox(height: 17.0),
                     TextFormField(
                       decoration:
                           textInputDecoration.copyWith(hintText: 'email'),
@@ -54,7 +54,7 @@ class _SignInState extends State<SignIn> {
                         setState(() => email = val);
                       },
                     ),
-                    SizedBox(height: 20.0),
+                    SizedBox(height: 17.0),
                     TextFormField(
                       obscureText: true,
                       decoration:
@@ -66,7 +66,7 @@ class _SignInState extends State<SignIn> {
                         setState(() => password = val);
                       },
                     ),
-                    SizedBox(height: 20.0),
+                    SizedBox(height: 17.0),
                     RaisedButton(
                       elevation: 5.0,
                       color: Theme.of(context).primaryColor,

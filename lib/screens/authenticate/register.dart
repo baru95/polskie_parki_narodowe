@@ -46,7 +46,7 @@ class _RegisterState extends State<Register> {
                 key: _formKey,
                 child: Column(
                   children: <Widget>[
-                    SizedBox(height: 20.0),
+                    SizedBox(height: 17.0),
                     TextFormField(
                       decoration:
                           textInputDecoration.copyWith(hintText: 'email'),
@@ -55,7 +55,7 @@ class _RegisterState extends State<Register> {
                         setState(() => email = val);
                       },
                     ),
-                    SizedBox(height: 20.0),
+                    SizedBox(height: 17.0),
                     TextFormField(
                       decoration:
                           textInputDecoration.copyWith(hintText: 'hasło'),
@@ -67,7 +67,7 @@ class _RegisterState extends State<Register> {
                         setState(() => password = val);
                       },
                     ),
-                    SizedBox(height: 20.0),
+                    SizedBox(height: 17.0),
                     RaisedButton(
                         elevation: 5.0,
                         color: Theme.of(context).primaryColor,

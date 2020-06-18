@@ -76,7 +76,7 @@ class _ParkGalleryState extends State<ParkGallery> {
               }).toList(),
             ),
             SizedBox(
-              height: 20,
+              height: 10,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -95,7 +95,7 @@ class _ParkGalleryState extends State<ParkGallery> {
               }),
             ),
             SizedBox(
-              height: 20.0,
+              height: 10.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
